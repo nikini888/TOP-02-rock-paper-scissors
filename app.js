@@ -1,47 +1,40 @@
-const listChoice = ['rock', 'paper', 'scissors']
+let endGame = false;
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection = '';
+let computerSelection = '';
+let interval;
+let i = 0;
+
+const btnChoices = document.querySelectorAll('.btn__choice');
+const btnStart = document.querySelector('.btn.start');
+const numCount = document.querySelector('.count--num');
+console.log(numCount)
+const listChoices = ['rock', 'paper', 'scissors']
+
 //transform text
 function transform(str) {
     const newStr = str.toLowerCase().replace(str[0], str[0].toUpperCase())
     return newStr;
 }
-//Random computer play
-const computerPlay = function () {
-    const randNum = Math.floor(Math.random() * (listChoice.length - 1));
-    return listChoice[randNum]
+
+//Random computer choice
+const computerChoice = function () {
+    const randNum = Math.floor(Math.random() * (listChoices.length - 1));
+    return listChoices[randNum]
 }
 //Playler choice
 const playerChoice = function () {
-    let keepGoing = true;
-    let playerType;
-    while (keepGoing) {
-        playerType = prompt('Rock, Paper or Scissors?')
-        if (listChoice.includes(playerType.toLowerCase())) {
-            keepGoing = false;
-            return playerType;
-        }
-    }
+    let playerBtnSelec = '';
+    btnChoices.forEach(btnChoice => {
+        btnChoice.addEventListener('click', () => {
+            playerBtnSelec = btnChoice.dataset.choice
+        })
+    })
+    return playerBtnSelec;
 }
-function game() {
-    playerScore = 0;
-    computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = playerChoice()
-        const computerSelection = computerPlay()
-        playRound(playerSelection.toLowerCase(), computerSelection);
-    }
-    console.log(`Your score: ${playerScore} : Compurter score: ${computerScore}`)
-    if (playerScore > computerScore) {
-        console.log('YOU WIN!!!')
-    } else if (playerScore < computerScore) {
-        console.log('YOU LOSE!!!')
-    } else {
-        console.log('YOU DRAW!!!')
-    }
-}
-game()
 
+//compare computer and player choice
 function playRound(player, computer) {
     if (player === computer) {
         playerScore += 1;
@@ -58,3 +51,30 @@ function playRound(player, computer) {
         console.log(`Your score: ${playerScore} : Compurter score: ${computerScore}`)
     }
 }
+
+
+btnStart.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+
+    while (playerScore < 5 && computerScore < 5) {
+        playerSelection = playerChoice()
+        while (!playerSelection) {
+            interval = setInterval(count, 1000)
+        }
+        playRound(playerSelection, computerSelection);
+    }
+})
+
+function count() {
+    if (i >= 10 || playerSelection) {
+        computerSelection = computerChoice()
+        i = 0;
+        clearInterval(interval);
+    } else {
+        i++;
+        numCount.textContent = i;
+        console.log(i)
+    }
+}
+
