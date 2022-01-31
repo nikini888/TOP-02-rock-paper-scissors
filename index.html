@@ -5,21 +5,104 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./img/rock-paper-scissors.png">
+    <title>Rock, papper, scissors</title>
 </head>
 
 <body>
-    <div class="control">
-        <button class="btn start">Start</button>
-    </div>
+    <div class="container">
+        <div class="title">
+            <h1>rock</h1>
+            <h1>paper</h1>
+            <h1>scissors</h1>
+        </div>
+        <button class="btn start pointer ">Start</button>
+        <div class="content ">
+            <div class="getname hidden">
+                <label for="player__name" class="getname__label">Give me your name!!!</label>
+                <div class="getname__input">
+                    <input type="text" name="name" placeholder="Your name is..." id="player__name"
+                        class="btn input__name">
+                    <input type="button" value="Next" class="btn btn--getname">
+                </div>
+            </div>
 
-    <div class="count">
-        <span class='count--num'></span>
-    </div>
-    <button data-choice="rock" class="btn btn__choic">Rock</button>
-    <button data-choice="paper" class="btn btn__choice">Paper</button>
-    <button data-choice="scissors" class="btn btn__choice">Scissors</button>
+            <div class="control hidden">
+                <button class="btn startagain pointer selected again">Start Again</button>
 
+                <div class="board ">
+                    <div class="player">
+                        <p class="board__name board__name--player">NHA TUYEN</p>
+                    </div>
+                    <div class="scord">
+                        <p class="player__scord">0</p>
+                        <div class="scord__img">
+                            <img src="./img/versus.png" alt="">
+                        </div>
+                        <p class="computer__scord">1</p>
+                    </div>
+                    <div class="computer">
+                        <p class="board__name">PC</p>
+                    </div>
+                </div>
+                <div class="fight ">
+                    <div class="fight__icon">
+                        <div class="fight__icon--choice">
+                            <img src="./img/redquestion.png" class="fight--player">
+                        </div>
+                        <div class="fight__icon--fight">
+                            <img src="./img/fight.png" class="fight--icon">
+                        </div>
+                        <div class="fight__icon--choice">
+                            <img src="./img/bluequestion.png" class="fight--computer">
+                        </div>
+                    </div>
+                    <div class="fight__description">
+                        <p class="result">Go!</p>
+                        <p class="fight__description--text"> Choice your weapon!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="selections">
+            <div data-choice="rock" class="select">
+                <img src="./img/rock.png" alt="rock">
+                <p class="btn btn__choice">Rock</p>
+            </div>
+            <div data-choice="paper" class="select">
+                <img src="./img/papper.png" alt="rock">
+                <p class="btn btn__choice">Paper</p>
+
+            </div>
+            <div data-choice="scissors" class="select">
+                <img src="./img/scissors.png" alt="rock">
+                <p class="btn btn__choice">Scissors</p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="popup hidden">
+        <div class="popup__content">
+            <div class="anouce">
+                <p>You win!</p>
+                <div class="popuop__imgs">
+                    <div class="popup__img">
+                        <img src="./img/win.png" alt="" class="popup__img--img">
+                    </div>
+                    <div class="popup__img">
+                        <img src="./img/win.png" alt="" class="popup__img--img">
+                    </div>
+                    <div class="popup__img">
+                        <img src="./img/win.png" alt="" class="popup__img--img">
+                    </div>
+                </div>
+            </div>
+            <button class="btn pointer selected playagain again">Play again</button>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 

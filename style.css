@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Share+Tech+Mono&display=swap');
+:root{
+    --fontsizeH1: 3rem;
+    --fontsizeText: 2rem;
+    --fontsizeBtn:2rem;
+    --fontsizeScord:5rem;
+    --fontsizeName:2.5rem;
+}
+*{
+    box-sizing:border-box;
+    margin:0; 
+    padding:0;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-family: 'Share Tech Mono', monospace;
+    background:radial-gradient(circle at 13% 22%, rgba(226, 123, 123, 1) 0%, rgba(183, 100, 170, 1) 100%);
+    line-height: 1.4;
+}
+img{
+    max-width:100%;
+}
+h1,h2,h3,p{
+    padding:0;
+    margin:0;
+}
+h1{
+    font-family: 'Bungee Shade', cursive;
+    font-size: var(--fontsizeH1);
+}
+.btn {
+    background-color: #FCFCFD;
+    border-width: 0;
+    border-radius: 4px;
+    color: #36395A;
+    font-family: 'Share Tech Mono', monospace;
+    height: 2.5em;
+    line-height: 2.5em;
+    padding:0 1em;
+    text-transform: uppercase;
+    transition: box-shadow .15s,transform .15s;
+    font-size: var(--fontsizeBtn);
+    text-align: center;
+}
+.container{
+    width:85%;
+    height:100vh;
+    margin:1.5rem auto;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position:relative;
+}
+
+.title {
+    text-align: center;
+    color:#FCFC6E;
+    margin:0.75em auto;
+}
+
+.content{
+    text-align: center;
+}
+
+.getname{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:100%;
+    margin:1em auto;
+    text-align: center;
+}
+.getname__label{
+    font-size: var(--fontsizeText);
+    margin-bottom: 1em;;
+}
+.getname__input *{
+    font-size: var(--fontsizeText);
+}
+.input__name{
+    width:100%;
+    max-width:400px
+}
+.btn--getname{
+    display: block;
+    margin:0.5em auto;
+}
+.board{
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    margin:1em auto;
+    padding:0.5rem;
+    max-width:630px;
+}
+.board,
+.scord{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.board >*{
+    width:30%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board__name{
+    width: 100%;
+    font-size: var(--fontsizeName);
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+}
+.scord{
+    padding:0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    gap:5px;
+}
+.scord__img{
+    width:50px;
+}
+.scord p{
+    font-size: var(--fontsizeScord);
+}
+.fight{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;;
+}
+.fight__icon {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.fight__icon > * {
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.fight__icon--fight{
+    width:40px;
+    display:flex;
+    align-items: center;
+}
+.fight__icon--choice{
+    width:100px;
+    height:100px;
+    padding:1em;
+    display:flex;
+    transition:background-color 250ms;
+}
+
+.fight__description{
+    width:80%;
+    margin: 0 auto;
+}
+.fight__description p{
+    overflow-wrap: break-word;
+    font-size: var(--fontsizeText);
+}
+.result{
+    display:block;
+}
+.selections{
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    max-width: 630px;
+}
+.select{
+    width:32%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    border-radius: 4px;
+}
+.select .btn{
+    border-radius: 0 0 4px 4px;
+    padding:0;
+}
+.select img{
+    padding:1em;
+}
+
+.pointer{
+    cursor: pointer;
+}
+.selected:focus {
+    box-shadow: #9494a1 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+.selected:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+.selected:active {
+    box-shadow: #9a9aa7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+.popup{
+    position: absolute;
+    top:0%;
+    left:0%;
+    right:0;
+    bottom: 0;
+    font-size: var(--fontsizeName);
+    display:flex;
+    background-color: rgba(0, 0, 0, 0.582);
+}
+.popup__content{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    width:60%;
+    max-width: 600px;
+    margin:auto;
+}
+.anouce{
+    width:100%;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75em 0;
+    background-color: rgb(255, 122, 60);
+}
+.popup .btn{
+  background-color: #72e1f1;
+  border: 0 solid #E5E7EB;
+  color: #000000;
+    margin:0.5em 0;
+}
+.popuop__imgs{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    gap:5px;
+    margin: 0 auto;
+}
+.popup__img{
+    --width:80px;
+    width:var(--width);
+    height: var(--width);
+    padding:5px;
+    /* background-color: rgb(252, 252, 252); */
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn.startagain{
+    font-size: 2rem;
+  background-color: #2c6a74;
+  color: #D6D6E7;
+}
+.btn.start {
+  background-color: #72e1f1;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: var(--fontsizeText);
+  font-weight: 700;
+  display:block;
+  margin:2em auto;
+  padding:0 1.5em;
+  position:relative;
+  max-width: 250px;
+  transform: rotate(-2deg);
+}
+
+.btn.start:focus {
+  outline: 0;
+}
+
+.btn.start:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+  border-radius: 4px;
+
+}
+
+.btn.start:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+@media (min-width:500px){
+    :root{
+        --fontsizeH1: 4.5rem;
+        --fontsizeText: 2.5rem;
+        --fontsizeBtn:2.5rem;
+        --fontsizeScord:6rem;
+        --fontsizeName:3rem;
+    }
+}
+@media (min-width:800px){
+    :root{
+        --fontsizeH1: 5rem;
+        --fontsizeText: 3rem;
+    }
+    .btn--getname{
+        display: inline-block;
+    }
+
+}
+@media (min-width:1200px){
+    :root{
+        --fontsizeH1: 7rem;
+    }
+    .title {
+        margin:0.25em;
+    }
+    .title > *{
+        margin:0;
+    }
+    .title > *{
+        display:inline-block;
+        margin:0 0.125em;
+    }
+
+}
+.hidden{
+    display: none !important;
+}
